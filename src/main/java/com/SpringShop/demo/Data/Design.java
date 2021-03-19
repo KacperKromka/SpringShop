@@ -1,4 +1,4 @@
-package com.SpringShop.demo;
+package com.SpringShop.demo.Data;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

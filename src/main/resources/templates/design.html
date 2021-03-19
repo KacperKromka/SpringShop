@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Design your own cloth!</title>
+</head>
+<body>
+    <h1>Design your own cloth!</h1>
+
+    <form method="post" th:object="${design}">
+        <div>
+            <div id="blackwhite">
+                <h3>Select black and white design:</h3>
+                <div th:each="design : ${blackwhite}">
+                    <input name="designs" type="checkbox" th:value="${design.id}"/>
+                    <span th:text="${design.name}">CZARNY BIAŁY</span><br/>
+                </div>
+            </div>
+
+            <div id="color">
+                <h3>or colorful one: </h3>
+                <div th:each="design : ${color}">
+                    <input name="designs" type="checkbox" th:value="${design.id}"/>
+                    <span th:text="${design.name}">KOLOROWY</span><br/>
+                </div>
+            </div>
+
+            <div>
+                <h3>Set name of your design:</h3>
+                <input type="text" th:field="*{name}"/> <br/>
+
+                <button>Send your design!</button>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+</html>

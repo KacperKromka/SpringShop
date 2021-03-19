@@ -1,11 +1,13 @@
 package com.SpringShop.demo.Controllers;
 
-import com.SpringShop.demo.Design;
-import com.SpringShop.demo.Design.Type;
+import com.SpringShop.demo.Data.Design;
+import com.SpringShop.demo.Data.Design.Type;
+import com.SpringShop.demo.Data.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
@@ -32,6 +34,12 @@ public class DesignController {
         }
         model.addAttribute("design", new Product());
         return "design";
+    }
+
+    @PostMapping
+    public String processDesign(Design design){
+        log.info("Przetwarzanie projektu " + design);
+        return "redirect:/orders/current";
     }
 
     private List<Design> filterByType(List<Design> designs, Type type) {
