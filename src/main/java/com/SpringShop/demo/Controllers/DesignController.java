@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class DesignController {
 
     @GetMapping
-    public String design(Model model) {
+    public String designForm(Model model) {
         List<Design> designs = Arrays.asList(
                 new Design(1,"czarne kropki", Type.BLACKWHITE),
                 new Design(2, "czarne paski", Type.BLACKWHITE),
@@ -30,7 +30,7 @@ public class DesignController {
 
         Type[] types = Design.Type.values();
         for (Type type: types){
-            model.addAttribute(type.toString().toLowerCase(Locale.ROOT),filterByType(designs, type));
+            model.addAttribute(type.toString().toLowerCase(),filterByType(designs, type));
         }
         model.addAttribute("design", new Product());
         return "design";
