@@ -6,7 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Design {
-    private final int id;
+
+    private final long id;
     private final String name;
     private final Type type;
 
