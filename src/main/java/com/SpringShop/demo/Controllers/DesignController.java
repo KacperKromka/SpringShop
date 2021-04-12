@@ -1,18 +1,13 @@
 package com.SpringShop.demo.Controllers;
 
-import com.SpringShop.demo.Data.Design;
+import com.SpringShop.demo.Data.*;
 import com.SpringShop.demo.Data.Design.Type;
-import com.SpringShop.demo.Data.DesignRepository;
-import com.SpringShop.demo.Data.JdbcDesignRepository;
-import com.SpringShop.demo.Data.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -22,14 +17,27 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Controller
-@Slf4j
 @RequestMapping("/design")
+@SessionAttributes("order")
 public class DesignController {
+
     private final DesignRepository designRepository;
+    private ProductRepository productRepository;
 
     @Autowired
-    public DesignController(DesignRepository designRepository){
+    public DesignController(DesignRepository designRepository, ProductRepository productRepository){
         this.designRepository = designRepository;
+        this.productRepository = productRepository;
+    }
+
+    @ModelAttribute(name = "order")
+    public Order order() {
+        return new Order();
+    }
+
+    @ModelAttribute(name = "product")
+    public Product product() {
+        return new Product();
     }
 
     @GetMapping
@@ -42,17 +50,20 @@ public class DesignController {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(designs, type));
         }
-        model.addAttribute("design", new Product());
+
         return "design";
     }
 
     @PostMapping
-    public String processDesign(@Valid Product design, Errors errors){
+    public String processDesign(@Valid Product design, Errors errors, @ModelAttribute Order order){
+
         if(errors.hasErrors()) {
             return "design";
         }
 
-        log.info("Przetwarzanie projektu " + design);
+        Product saved = productRepository.save(design);
+        order.addProduct(saved);
+
         return "redirect:/orders/current";
     }
 

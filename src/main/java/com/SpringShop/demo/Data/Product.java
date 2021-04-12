@@ -18,7 +18,7 @@ public class Product {
     @NotNull
     @Size(min = 3, message = "Name has to be 3 character long at least")
     private String name;
-    @NotNull
+
     @Size(min = 1, message = "Blank t-shirts are available at store")
-    private List<String> design;
+    private List<Design> design;
 }

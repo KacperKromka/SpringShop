@@ -8,7 +8,7 @@
 <body>
     <h1>Design your own cloth!</h1>
 
-    <form method="post" th:object="${design}">
+    <form method="post" th:object="${product}">
         <div>
             <div id="blackwhite">
                 <h3>Select black and white design:</h3>
@@ -28,7 +28,11 @@
 
             <div>
                 <h3>Set name of your design:</h3>
-                <input type="text" th:field="*{name}" name="name"/> <br/>
+                <input type="text" th:field="*{name}"/>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}">Name Error</span>
+
                 <input type="text" th:field="*{id}" name="id"/> <br/>
                 <button>Send your design!</button>
             </div>

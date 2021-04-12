@@ -5,9 +5,9 @@ create table if not exists Design (
 );
 
 create table if not exists Product (
-    id bigint not null,
+    name varchar(45) not null,
     date timestamp not null,
-    name varchar(45) not null
+    id identity
 );
 
 create table if not exists Product_Design (
