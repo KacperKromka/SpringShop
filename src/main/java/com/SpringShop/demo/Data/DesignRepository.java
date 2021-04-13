@@ -1,7 +1,6 @@
 package com.SpringShop.demo.Data;
 
-public interface DesignRepository {
-    Iterable<Design> findAll();
-    Design findById(Long id);
-    Design save(Design design);
+import org.springframework.data.repository.CrudRepository;
+
+public interface DesignRepository extends CrudRepository<Design, Long> {
 }

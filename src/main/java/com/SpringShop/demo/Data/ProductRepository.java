@@ -1,6 +1,6 @@
 package com.SpringShop.demo.Data;
 
-public interface ProductRepository {
+import org.springframework.data.repository.CrudRepository;
 
-    Product save(Product product);
+public interface ProductRepository extends CrudRepository<Product, Long> {
 }
