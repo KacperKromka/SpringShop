@@ -1,6 +1,6 @@
 package com.SpringShop.demo;
 
-import com.SpringShop.demo.Data.Design;
+import com.SpringShop.demo.Entity.Design;
 import com.SpringShop.demo.Data.DesignRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

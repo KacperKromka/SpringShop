@@ -1,4 +1,4 @@
-package com.SpringShop.demo.Data;
+package com.SpringShop.demo.Entity;
 
 import lombok.AccessLevel;
 import lombok.Data;

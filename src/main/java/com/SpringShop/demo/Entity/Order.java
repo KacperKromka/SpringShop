@@ -1,5 +1,6 @@
-package com.SpringShop.demo.Data;
+package com.SpringShop.demo.Entity;
 
+import com.SpringShop.demo.Entity.Product;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 

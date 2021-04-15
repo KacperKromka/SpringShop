@@ -1,6 +1,6 @@
 package com.SpringShop.demo.Controllers;
 
-import com.SpringShop.demo.Data.Order;
+import com.SpringShop.demo.Entity.Order;
 import com.SpringShop.demo.Data.OrderRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

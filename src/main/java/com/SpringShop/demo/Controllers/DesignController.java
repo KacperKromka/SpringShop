@@ -1,8 +1,10 @@
 package com.SpringShop.demo.Controllers;
 
 import com.SpringShop.demo.Data.*;
-import com.SpringShop.demo.Data.Design.Type;
-import lombok.extern.slf4j.Slf4j;
+import com.SpringShop.demo.Entity.Design;
+import com.SpringShop.demo.Entity.Design.Type;
+import com.SpringShop.demo.Entity.Order;
+import com.SpringShop.demo.Entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Controller
